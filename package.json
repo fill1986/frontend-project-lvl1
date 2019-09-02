@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "froentendProjectlvl1",
   "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
   "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fill1986/frontend-project-lvl1.git"
@@ -15,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/fill1986/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/fill1986/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/fill1986/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
 }
