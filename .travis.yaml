@@ -1,12 +1,12 @@
 languge: node-js
 node_js:
-	- node
+- node
 
 sudo: false
 
 script:
-	- make lint
-	- make test
+- make lint
+- make test
 
 notifications:
  email:
