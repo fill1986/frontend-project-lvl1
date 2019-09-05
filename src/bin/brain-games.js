@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-'use strict';
 
-var readlineSync = require('readline-sync');
 
+const readlineSync = require('readline-sync');
 
 console.log('Welcome to the Brain Games!, test STEP_3');
 const actual = readlineSync.question('May I have you name: ');
