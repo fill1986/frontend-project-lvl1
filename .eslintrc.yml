@@ -6,9 +6,6 @@ plugins:
 env:
   node: true
 
-# https://github.com/babel/babel-eslint
-parser: babel-eslint
-
 extends:
   - 'airbnb-base'
 
