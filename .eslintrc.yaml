@@ -1,0 +1,3 @@
+rules:
+ no-console: 0
+ no-const-assign: 0
