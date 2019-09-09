@@ -6,6 +6,6 @@ run:
 	npx babel src --out-dir dist
 
 lint:
-	npx eslint src/bin/brain-games.js
+	npx eslint
 
 

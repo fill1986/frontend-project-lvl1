@@ -36,9 +36,6 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^18.0.1",
-    "install-peerdeps": "^1.10.2",
-    "readline-sync": "^1.4.10",
-    "yarn": "^1.17.3"
+    "readline-sync": "^1.4.10"
   }
 }
