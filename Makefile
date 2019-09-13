@@ -1,4 +1,5 @@
-install: install-deps
+install: 
+	npm install
 
 install-deps:
 	npm install
