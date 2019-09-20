@@ -9,5 +9,5 @@ notifications:
  email:
    recipiens:
     -fill1986@gmail.com
-   on_success: never
+   on_success: always
    on_failure: always 
