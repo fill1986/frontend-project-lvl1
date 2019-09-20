@@ -1,11 +1,9 @@
-languge: node_js
+language: node_js
 node_js:
-- node
-
-sudo: false
+  - node
 
 script:
-- make lint
+  - make lint
 
 notifications:
  email:
