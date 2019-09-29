@@ -17,4 +17,4 @@ const checkAnswer = () => {
   } return false;
 };
 
-export {greeting, checkAnswer};
+export { greeting, checkAnswer };
