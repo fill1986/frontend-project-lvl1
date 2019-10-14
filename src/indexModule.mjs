@@ -1,9 +1,6 @@
 import readlineSync from 'readline-sync';
-
-export {
- greeting, checkAnswer, getName, generateNumber, engineGame, getNOD 
-};
-// const actual = readlineSync.question('Your answer: ');
+export { greeting, checkAnswer, getName, generateNumber, engineGame, getNOD };
+//const actual = readlineSync.question('Your answer: ');
 
 const engineGame = (f) => {
   const name = getName();
@@ -24,18 +21,17 @@ const getName = () => {
 const generateNumber = (max) => Math.floor(Math.random() * max);
 
 const checkAnswer = (answerUser, trueResult, name) => {
-  if (answerUser == trueResult) {
+  if (answerUser==trueResult){
     console.log('Correct!');
-  } else {
+  }else {
     console.log(`"${answerUser}" is wrong answer ;(. Correct answer was "${trueResult}"`);
     console.log(`Let's try again, ${name}`);
-  }
-};
+}
+}
 
 const getNOD = (num1, num2) => {
-  if (!num2) {
-    return num1;
+  if ( ! num2) {
+  return num1;
   }
   return getNOD(num2, num1 % num2);
 }
-;

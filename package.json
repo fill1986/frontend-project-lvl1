@@ -6,7 +6,10 @@
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
-    "brain-calculator": "dist/bin/brain-calc.js"
+    "brain-calculator": "dist/bin/brain-calc.js",
+    "brain-nod": "dist/bin/brain-nod.js",
+    "brain-prime": "dist/bin/brain-prime.js",
+    "brain-progres": "dist/bin/brain-progres.js"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
