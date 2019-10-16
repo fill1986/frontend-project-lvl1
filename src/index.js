@@ -1,41 +1,14 @@
 import readlineSync from 'readline-sync';
+import { brainEven } from './games/brain-even_module';
+import { calculatorGame } from './games/brain_calc_module';
+import { gameNode } from './games/brain_nod_module';
+import { brainPrimeGame } from './games/brain_prime_module';
+import { progresGame } from './games/brain_progres_module';
+
+import {
+  engineGame, greeting, getName, generateNumber, checkAnswer, getNOD,
+} from './games/engine_common_module';
 
 export {
- greeting, checkAnswer, getName, generateNumber, engineGame, getNOD 
+  greeting, checkAnswer, getName, generateNumber, engineGame, getNOD, readlineSync, brainEven, calculatorGame, gameNode, brainPrimeGame, progresGame,
 };
-// const actual = readlineSync.question('Your answer: ');
-
-const engineGame = (f) => {
-  const name = getName();
-  return f(name);
-};
-
-const greeting = (rules) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(rules);
-};
-
-const getName = () => {
-  const name = readlineSync.question('May I have you name: ');
-  console.log(`Hellow dear ${name}`);
-  return name;
-};
-
-const generateNumber = (max) => Math.floor(Math.random() * max);
-
-const checkAnswer = (answerUser, trueResult, name) => {
-  if (answerUser == trueResult) {
-    console.log('Correct!');
-  } else {
-    console.log(`"${answerUser}" is wrong answer ;(. Correct answer was "${trueResult}"`);
-    console.log(`Let's try again, ${name}`);
-  }
-};
-
-const getNOD = (num1, num2) => {
-  if (!num2) {
-    return num1;
-  }
-  return getNOD(num2, num1 % num2);
-}
-;
