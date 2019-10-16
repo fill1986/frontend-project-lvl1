@@ -10,8 +10,11 @@ run:
 	npx babel src --out-dir dist
 
 lint:
-	npx eslint 'src/bin/brain-games.js'
+	npx eslint 'src/bin/brain-calc.js'
 	npx eslint 'src/bin/brain-even.js'
+        npx eslint 'src/bin/brain-nod.js'
+        npx eslint 'src/bin/brain-prime.js'
+        npx eslint 'src/bin/brain-progres.js'
 build:
 	rm -rf dist
 	npmrun build
