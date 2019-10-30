@@ -1,6 +1,4 @@
 #! /usr/bin/env node
-import {
-  engineGame, progresGame,
-} from '../index';
+import progresGame from '../games/brain_progres';
 
-engineGame(progresGame);
+progresGame();

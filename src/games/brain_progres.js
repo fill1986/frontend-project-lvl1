@@ -1,12 +1,17 @@
 #! /usr/bin/env node
 import {
-  checkAnswer, generateNumber, greeting, readlineSync
-} from '../index';
+  generateNumber,
+} from './engine_common_module';
+import engineGame from './Engine';
+import readlineSync from '../index';
 
-const progresGame = (name) => {
-  greeting('What number is missing in the progression?');
-  const iterTry = (numTry) => {
-    if (numTry == 3) { return console.log(`Congratulation, ${name} `); }
+
+const progresGame = () => {
+  const gameName = 'progresGame';
+  const userName = readlineSync.question('May I have you name: ');
+
+  const iterTry = (countTry) => {
+    if (countTry > 3) { return 'end'; }
     let startProgression = generateNumber(60);
     const stepPregression = generateNumber(10);
     const arrProgression = [];
@@ -18,7 +23,7 @@ const progresGame = (name) => {
     }
 
     const lostPosition = generateNumber(9);
-    const trueResult = arrProgression[lostPosition];
+    const trueAnswer = arrProgression[lostPosition];
 
     const createQuestion = () => {
       let stringQuestion = '';
@@ -31,15 +36,11 @@ const progresGame = (name) => {
       };
       return iter(0);
     };
+    const Question = createQuestion();
 
-    console.log(`Question:  ${createQuestion()}`);
-    const answerUser = readlineSync.question('Answer:');
-
-    checkAnswer(answerUser, trueResult, name);
-
-    return iterTry((trueResult == answerUser) ? numTry + 1 : 0);
+    return iterTry(engineGame(countTry, Question, trueAnswer, gameName, userName));
   };
   iterTry(0);
 };
 
-export {progresGame};
+export default progresGame;

@@ -1,4 +1,4 @@
 #! /usr/bin/env node
-import { engineGame, calculatorGame } from '../index';
+import calculatorGame from '../games/brain_calc';
 
-engineGame(calculatorGame);
+calculatorGame();

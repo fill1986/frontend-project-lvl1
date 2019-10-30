@@ -1,25 +1,7 @@
-import { readlineSync } from '../index';
-
-const engineGame = (f) => {
-  const name = getName();
-  return f(name);
-};
-
-const greeting = (rules) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(rules);
-};
-
-const getName = () => {
-  const name = readlineSync.question('May I have you name: ');
-  console.log(`Hellow dear ${name}`);
-  return name;
-};
-
 const generateNumber = (max) => Math.floor(Math.random() * max);
 
 const checkAnswer = (answerUser, trueResult, name) => {
-  if (answerUser == trueResult) {
+  if (answerUser === trueResult) {
     console.log('Correct!');
   } else {
     console.log(`"${answerUser}" is wrong answer ;(. Correct answer was "${trueResult}"`);
@@ -35,6 +17,5 @@ const getNOD = (num1, num2) => {
 };
 
 export {
-  engineGame, greeting, getName, generateNumber, checkAnswer, getNOD,
-}
-;
+  generateNumber, checkAnswer, getNOD,
+};
