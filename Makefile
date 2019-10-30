@@ -4,7 +4,7 @@ install:
 install-deps:
 	npm install
 
-start: npx babel-node 'src/bin/brain-games.js'
+start: npx babel-node 'src/'
 
 run:
 	npx babel src --out-dir dist
