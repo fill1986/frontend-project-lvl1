@@ -1,4 +1,4 @@
-install: 
+install:
 	npm install
 
 install-deps:
@@ -10,7 +10,7 @@ run:
 	npx babel src --out-dir dist
 
 lint:
-	npx eslint 'src/'
+	npx eslint 'src/bin/brain-nod.js'
 build:
 	rm -rf dist
 	npmrun build
