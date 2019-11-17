@@ -1,13 +1,10 @@
 #! /usr/bin/env node
-import generateNumber from './engine_common_module';
-import engineGame from './Engine';
-import readlineSync from '../index';
+import generateNumber from '../engine_common_function';
+import engineGame from '../Engine';
 
+const symbolArr = ['-', '+', '*'];
 
 const calculatorGame = () => {
-  const gameName = 'calculatorGame';
-  const userName = readlineSync.question('May I have you name: ');
-  const symbolArr = ['-', '+', '*'];
   const rulesGame = 'What is the result of the expression?';
 
   const iter = (countTry) => {
@@ -27,7 +24,7 @@ const calculatorGame = () => {
 
     const Question = `${number1}${symbolArr[getRandomSign]}${number2}=?`;
 
-    return iter(engineGame(countTry, Question, ResultExpression, gameName, userName, rulesGame));
+    return iter(engineGame(countTry, Question, ResultExpression, rulesGame));
   };
 
   return iter(0);

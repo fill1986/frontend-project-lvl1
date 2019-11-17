@@ -1,11 +1,8 @@
 #! /usr/bin/env node
-import generateNumber from './engine_common_module';
-import engineGame from './Engine';
-import readlineSync from '../index';
+import generateNumber from '../engine_common_function';
+import engineGame from '../Engine';
 
 const brainPrimeGame = () => {
-  const gameName = 'primeGame';
-  const userName = readlineSync.question('May I have you name: ');
   const rulesGame = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
 
   const iter = (countTry) => {
@@ -20,7 +17,7 @@ const brainPrimeGame = () => {
 
     const trueAnswer = getTrueAnswer(Question);
 
-    return iter(engineGame(countTry, Question, trueAnswer, gameName, userName, rulesGame));
+    return iter(engineGame(countTry, Question, trueAnswer, rulesGame));
   };
   return iter(0);
 };

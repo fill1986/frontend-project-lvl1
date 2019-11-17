@@ -1,17 +1,13 @@
 #! /usr/bin/env node
-import generateNumber from './engine_common_module';
-import engineGame from './Engine';
-import readlineSync from '../index';
-
+import generateNumber from '../engine_common_function';
+import engineGame from '../Engine';
 
 const progresGame = () => {
-  const gameName = 'progresGame';
-  const userName = readlineSync.question('May I have you name: ');
   const rulesGame = 'What number is missing in the progression?';
   const iterTry = (countTry) => {
     if (countTry > 3) { return 'end'; }
     let startProgression = generateNumber(0, 100);
-    const stepPregression = generateNumber(0, 10);
+    const stepPregression = generateNumber(1, 10);
     const lengthProgression = 10;
     const arrProgression = [];
     const endProg = startProgression + stepPregression * lengthProgression;
@@ -37,7 +33,7 @@ const progresGame = () => {
     };
     const Question = createQuestion();
 
-    return iterTry(engineGame(countTry, Question, trueAnswer, gameName, userName, rulesGame));
+    return iterTry(engineGame(countTry, Question, trueAnswer, rulesGame));
   };
   iterTry(0);
 };
