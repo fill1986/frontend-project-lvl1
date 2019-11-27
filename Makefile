@@ -10,7 +10,7 @@ run:
 	npx babel src --out-dir dist
 
 lint:
-	npx eslint 'src/bin/brain-nod.js'
+	npx eslint 'src/bin/'
 build:
 	rm -rf dist
 	npmrun build
