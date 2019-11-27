@@ -10,7 +10,7 @@ run:
 	npx babel src --out-dir dist
 
 lint:
-	npx eslint 'src/bin/'
+	npx eslint 'src/'
 build:
 	rm -rf dist
 	npmrun build

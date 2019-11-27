@@ -1,13 +1,12 @@
 #! /usr/bin/env node
 import generateNumber from '../engine_common_function';
-import engineGame from '../Engine';
+import engineGame from '../engine';
 
 const brainPrimeGame = () => {
   const rulesGame = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
 
-  const iter = (countTry) => {
-    if (countTry > 3) { return 'end'; }
-    const Question = generateNumber(0, 1000);
+  const getQuestionAnswer = () => {
+    const question = generateNumber(0, 1000);
 
     const getTrueAnswer = (num) => {
       for (let i = 2; i <= Math.sqrt(num); i += 1) {
@@ -15,11 +14,12 @@ const brainPrimeGame = () => {
       } return 'yes';
     };
 
-    const trueAnswer = getTrueAnswer(Question);
+    const trueAnswer = getTrueAnswer(question);
 
-    return iter(engineGame(countTry, Question, trueAnswer, rulesGame));
+    return [question, trueAnswer];
   };
-  return iter(0);
+
+  engineGame(getQuestionAnswer, rulesGame);
 };
 
 export default brainPrimeGame;

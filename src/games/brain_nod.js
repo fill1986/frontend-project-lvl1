@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import generateNumber from '../engine_common_function';
-import engineGame from '../Engine';
+import engineGame from '../engine';
 
 const getNOD = (num1, num2) => {
   if (!num2) {
@@ -11,16 +11,14 @@ const getNOD = (num1, num2) => {
 
 const gameNode = () => {
   const rulesGame = 'Find the greatest common divisor of given numbers.';
-  const iter = (countTry) => {
-    if (countTry > 3) { return 'end'; }
+  const getQuestionAnswer = () => {
     const num1 = generateNumber(0, 99);
     const num2 = generateNumber(0, 99);
     const trueAnswer = getNOD(num1, num2);
-    const Question = `${num1}  ${num2}`;
-
-    return iter(engineGame(countTry, Question, trueAnswer, rulesGame));
+    const question = `${num1}  ${num2}`;
+    return [question, trueAnswer];
   };
-  return iter(0);
+  engineGame(getQuestionAnswer, rulesGame);
 };
 
 export default gameNode;

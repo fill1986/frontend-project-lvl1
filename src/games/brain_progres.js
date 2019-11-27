@@ -1,11 +1,10 @@
 #! /usr/bin/env node
 import generateNumber from '../engine_common_function';
-import engineGame from '../Engine';
+import engineGame from '../engine';
 
 const progresGame = () => {
   const rulesGame = 'What number is missing in the progression?';
-  const iterTry = (countTry) => {
-    if (countTry > 3) { return 'end'; }
+  const getQuestionAnswer = () => {
     let startProgression = generateNumber(0, 100);
     const stepPregression = generateNumber(1, 10);
     const lengthProgression = 10;
@@ -17,7 +16,7 @@ const progresGame = () => {
       arrProgression.push(startProgression);
     }
 
-    const lostPosition = generateNumber(9);
+    const lostPosition = generateNumber(0, 9);
     const trueAnswer = arrProgression[lostPosition];
 
     const createQuestion = () => {
@@ -31,11 +30,11 @@ const progresGame = () => {
       };
       return iter(0);
     };
-    const Question = createQuestion();
-
-    return iterTry(engineGame(countTry, Question, trueAnswer, rulesGame));
+    const question = createQuestion();
+    return [question, trueAnswer];
   };
-  iterTry(0);
+
+  engineGame(getQuestionAnswer, rulesGame);
 };
 
 export default progresGame;
