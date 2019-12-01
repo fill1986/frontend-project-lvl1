@@ -1,4 +1,4 @@
-import readlineSync from './index';
+import readlineSync from 'readline-sync';
 
 const engineGame = (funcQuestionAnswer, rulesGame) => {
   const countTrueAnswerForWin = 3;
@@ -8,7 +8,7 @@ const engineGame = (funcQuestionAnswer, rulesGame) => {
   console.log(rulesGame);
 
   const checkAnswer = (userAnswer, corretAnswer) => {
-    if (userAnswer.toString() === corretAnswer.toString()) {
+    if (userAnswer === corretAnswer) {
       console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${corretAnswer}"`);
@@ -32,7 +32,7 @@ const engineGame = (funcQuestionAnswer, rulesGame) => {
     const userAnswer = readlineSync.question('Answer: ');
     checkAnswer(userAnswer, trueAnswer);
 
-    countTryEngine = (userAnswer === trueAnswer.toString()) ? countTryEngine + 1 : countTryEngine;
+    countTryEngine = (userAnswer === trueAnswer) ? countTryEngine + 1 : countTryEngine;
     return iter(countTryEngine);
   };
 

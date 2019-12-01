@@ -1,30 +1,34 @@
 #! /usr/bin/env node
-import generateNumber from '../engine_common_function';
+import generateNumber from '../utils';
 import engineGame from '../engine';
 
-const symbolArr = ['-', '+', '*'];
+const symbol = ['-', '+', '*'];
+
+const getQuestionAnswer = () => {
+  const minValueRange = 0;
+  const maxValueRange = 100;
+  const number1 = generateNumber(minValueRange, maxValueRange);
+  const number2 = generateNumber(minValueRange, maxValueRange);
+  const firstSymbol = 0;
+  const lastSymbol = symbol.length - 1;
+  const getRandomSign = symbol[generateNumber(firstSymbol, lastSymbol)];
+  let trueAnswer;
+
+  switch (getRandomSign) {
+    case '-': trueAnswer = number1 - number2; break;
+    case '+': trueAnswer = number1 + number2; break;
+    case '*': trueAnswer = number1 * number2; break;
+    default: break;
+  }
+  const question = `${number1}${getRandomSign}${number2}=?`;
+
+  return [question, trueAnswer.toString()];
+};
+
+const ruleGame = 'What is the result of the expression?';
 
 const calculatorGame = () => {
-  const rulesGame = 'What is the result of the expression?';
-  const getQuestionAnswer = () => {
-    const number1 = generateNumber(0, 100);
-    const number2 = generateNumber(0, 100);
-    const getRandomSign = generateNumber(0, 2);
-    let resultExpression;
-
-    switch (getRandomSign) {
-      case 0: resultExpression = number1 - number2; break;
-      case 1: resultExpression = number1 + number2; break;
-      case 2: resultExpression = number1 * number2; break;
-      default: break;
-    }
-
-    const question = `${number1}${symbolArr[getRandomSign]}${number2}=?`;
-
-    return [question, resultExpression];
-  };
-
-  engineGame(getQuestionAnswer, rulesGame);
+  engineGame(getQuestionAnswer, ruleGame);
 };
 
 export default calculatorGame;

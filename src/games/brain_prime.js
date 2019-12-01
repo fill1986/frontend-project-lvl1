@@ -1,25 +1,26 @@
 #! /usr/bin/env node
-import generateNumber from '../engine_common_function';
+import generateNumber from '../utils';
 import engineGame from '../engine';
 
+const isSimple = (value) => {
+  for (let i = 2; i <= Math.sqrt(value); i += 1) {
+    if (value % i === 0) { return false; }
+  } return true;
+};
+
+const getQuestionAnswer = () => {
+  const minValueRange = 0;
+  const maxValueRange = 1000;
+  const question = generateNumber(minValueRange, maxValueRange);
+  const trueAnswer = isSimple(question) ? 'yes' : 'no';
+
+  return [question, trueAnswer];
+};
+
+const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
+
 const brainPrimeGame = () => {
-  const rulesGame = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
-
-  const getQuestionAnswer = () => {
-    const question = generateNumber(0, 1000);
-
-    const getTrueAnswer = (num) => {
-      for (let i = 2; i <= Math.sqrt(num); i += 1) {
-        if (num % i === 0) { return 'no'; }
-      } return 'yes';
-    };
-
-    const trueAnswer = getTrueAnswer(question);
-
-    return [question, trueAnswer];
-  };
-
-  engineGame(getQuestionAnswer, rulesGame);
+  engineGame(getQuestionAnswer, ruleGame);
 };
 
 export default brainPrimeGame;

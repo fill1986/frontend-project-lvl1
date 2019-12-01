@@ -1,40 +1,43 @@
 #! /usr/bin/env node
-import generateNumber from '../engine_common_function';
+import generateNumber from '../utils';
 import engineGame from '../engine';
 
-const progresGame = () => {
-  const rulesGame = 'What number is missing in the progression?';
-  const getQuestionAnswer = () => {
-    let startProgression = generateNumber(0, 100);
-    const stepPregression = generateNumber(1, 10);
-    const lengthProgression = 10;
-    const arrProgression = [];
-    const endProg = startProgression + stepPregression * lengthProgression;
+const getQuestionAnswer = () => {
+  const minValueRange = 1;
+  const maxValueRange = 100;
+  let startProgression = generateNumber(minValueRange, maxValueRange);
+  const stepPregression = generateNumber(minValueRange, maxValueRange);
+  const lengthProgression = 10;
+  const progression = [];
+  const endProgression = startProgression + stepPregression * lengthProgression;
 
-    for (startProgression; startProgression < endProg;) {
-      startProgression += stepPregression;
-      arrProgression.push(startProgression);
-    }
+  for (startProgression; startProgression < endProgression;) {
+    startProgression += stepPregression;
+    progression.push(startProgression);
+  }
 
-    const lostPosition = generateNumber(0, 9);
-    const trueAnswer = arrProgression[lostPosition];
+  const lostPosition = generateNumber(0, lengthProgression - 1);
+  const trueAnswer = progression[lostPosition].toString();
 
-    const createQuestion = () => {
-      let stringQuestion = '';
-      const iter = (count) => {
-        if (count === arrProgression.length) {
-          return stringQuestion;
-        }
-        stringQuestion += (count !== lostPosition) ? ` ${arrProgression[count]}` : ' ..';
-        return iter(count + 1);
-      };
-      return iter(0);
+  const createQuestion = () => {
+    let stringQuestion = '';
+    const iter = (count) => {
+      if (count === progression.length) {
+        return stringQuestion;
+      }
+      stringQuestion += (count !== lostPosition) ? ` ${progression[count]}` : ' ..';
+      return iter(count + 1);
     };
-    const question = createQuestion();
-    return [question, trueAnswer];
+    return iter(0);
   };
+  const question = createQuestion();
+  return [question, trueAnswer];
+};
 
-  engineGame(getQuestionAnswer, rulesGame);
+const ruleGame = 'What number is missing in the progression?';
+
+const progresGame = () => {
+  engineGame(getQuestionAnswer, ruleGame);
 };
 
 export default progresGame;
