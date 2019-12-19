@@ -11,9 +11,7 @@ nodejs-package
 
 Copy files from git and to install:
 
-#git clone https://github.com/fill1986/frontend-project-lvl1.
-
-git OurDirectory/
+#git clone https://github.com/fill1986/frontend-project-lvl1.git OurDirectory/
 
 #cd OurDirectory
 
