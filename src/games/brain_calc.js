@@ -2,16 +2,17 @@
 import generateNumber from '../utils';
 import engineGame from '../engine';
 
-const symbol = ['-', '+', '*'];
+const signsOperations = ['-', '+', '*'];
+const firstSymbol = 0;
+const lastSymbol = signsOperations.length - 1;
+const minValueRange = 0;
+const maxValueRange = 100;
+const ruleGame = 'What is the result of the expression?';
 
 const getQuestionAnswer = () => {
-  const minValueRange = 0;
-  const maxValueRange = 100;
   const number1 = generateNumber(minValueRange, maxValueRange);
   const number2 = generateNumber(minValueRange, maxValueRange);
-  const firstSymbol = 0;
-  const lastSymbol = symbol.length - 1;
-  const getRandomSign = symbol[generateNumber(firstSymbol, lastSymbol)];
+  const getRandomSign = signsOperations[generateNumber(firstSymbol, lastSymbol)];
   let trueAnswer;
 
   switch (getRandomSign) {
@@ -24,8 +25,6 @@ const getQuestionAnswer = () => {
 
   return [question, trueAnswer.toString()];
 };
-
-const ruleGame = 'What is the result of the expression?';
 
 const calculatorGame = () => {
   engineGame(getQuestionAnswer, ruleGame);

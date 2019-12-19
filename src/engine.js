@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const engineGame = (funcQuestionAnswer, rulesGame) => {
+const engineGame = (getQuestionAnswer, rulesGame) => {
   const countTrueAnswerForWin = 3;
   const userName = readlineSync.question('May I have you name: ');
   console.log(`Hellow, ${userName}`);
@@ -17,23 +17,18 @@ const engineGame = (funcQuestionAnswer, rulesGame) => {
   };
 
   const iter = (count) => {
-    let countTryEngine = count;
-    if (countTryEngine === countTrueAnswerForWin) {
-      console.log(`Congratulation, ${userName}`);
-      countTryEngine += 1;
-      return countTryEngine;
+    if (count === countTrueAnswerForWin) {
+      return console.log(`Congratulation, ${userName}`);
     }
 
-    const pairQuestionAnswer = funcQuestionAnswer();
+    const pairQuestionAnswer = getQuestionAnswer();
     const question = pairQuestionAnswer[0];
     const trueAnswer = pairQuestionAnswer[1];
     console.log(`Question:  ${question}`);
-
     const userAnswer = readlineSync.question('Answer: ');
     checkAnswer(userAnswer, trueAnswer);
 
-    countTryEngine = (userAnswer === trueAnswer) ? countTryEngine + 1 : countTryEngine;
-    return iter(countTryEngine);
+    return iter((userAnswer === trueAnswer) ? count + 1 : count);
   };
 
   return iter(0);
