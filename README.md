@@ -23,11 +23,11 @@ git OurDirectory/
 
 Now avalibels 5 console games:
 
-*brain-calc  - you will need to calculate the result of the expression
-*brain-nod  -  to find the greatest common divisor
-*brain-even  - to answer "yes" if the number is even, otherwise answer "no"
-*brain-progress - to find the number is missing in the progression
-*brain-prime to answer "yes" if given number is prime. Otherwise answer "no"
+  *brain-calc  - you will need to calculate the result of the expression
+  *brain-nod  -  to find the greatest common divisor
+  *brain-even  - to answer "yes" if the number is even, otherwise answer "no"
+  *brain-progress - to find the number is missing in the progression
+  *brain-prime to answer "yes" if given number is prime. Otherwise answer "no"
 
 For statting games enter name games in console;
 
