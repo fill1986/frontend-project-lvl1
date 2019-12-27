@@ -6,7 +6,7 @@ import engineGame from '../engine';
 const isEven = (value) => value % 2 === 0;
 const minValueRange = 0;
 const maxValueRange = 1000;
-const ruleGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getQuestionAnswer = () => {
   const question = generateNumber(minValueRange, maxValueRange);
@@ -14,8 +14,6 @@ const getQuestionAnswer = () => {
   return [question, trueAnswer];
 };
 
-const brainEven = () => {
-  engineGame(getQuestionAnswer, ruleGame);
+export default () => {
+  engineGame(getQuestionAnswer, gameDescription);
 };
-
-export default brainEven;

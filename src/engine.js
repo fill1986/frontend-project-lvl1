@@ -1,34 +1,32 @@
 import readlineSync from 'readline-sync';
 
-const engineGame = (getQuestionAnswer, rulesGame) => {
-  const countTrueAnswerForWin = 3;
+const trueAnswerForWinCount = 3;
+
+const engineGame = (getQuestionAnswer, gameDescription) => {
   const userName = readlineSync.question('May I have you name: ');
   console.log(`Hellow, ${userName}`);
   console.log('Welcome to the Brain Games!');
-  console.log(rulesGame);
-
-  const checkAnswer = (userAnswer, corretAnswer) => {
-    if (userAnswer === corretAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${corretAnswer}"`);
-      console.log(`Let's try again, ${userName}`);
-    }
-  };
+  console.log(gameDescription);
 
   const iter = (count) => {
-    if (count === countTrueAnswerForWin) {
-      return console.log(`Congratulation, ${userName}`);
+    if (count === trueAnswerForWinCount) {
+      console.log(`Congratulation, ${userName}`);
+      return;
     }
 
-    const pairQuestionAnswer = getQuestionAnswer();
-    const question = pairQuestionAnswer[0];
-    const trueAnswer = pairQuestionAnswer[1];
+    const [question, trueAnswer] = getQuestionAnswer();
     console.log(`Question:  ${question}`);
-    const userAnswer = readlineSync.question('Answer: ');
-    checkAnswer(userAnswer, trueAnswer);
+    const userAnswer = readlineSync.question(`Answer:   //${trueAnswer}    `);
 
-    return iter((userAnswer === trueAnswer) ? count + 1 : count);
+    if (userAnswer === trueAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${trueAnswer}"`);
+      console.log(`Let's try again, ${userName}`);
+      return;
+    }
+
+    iter(count + 1);
   };
 
   return iter(0);

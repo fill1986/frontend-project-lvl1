@@ -2,7 +2,7 @@
 import generateNumber from '../utils';
 import engineGame from '../engine';
 
-const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"?';
 const minValueRange = -10;
 const maxValueRange = 100;
 
@@ -20,8 +20,6 @@ const getQuestionAnswer = () => {
   return [question, trueAnswer];
 };
 
-const brainPrimeGame = () => {
-  engineGame(getQuestionAnswer, ruleGame);
+export default () => {
+  engineGame(getQuestionAnswer, gameDescription);
 };
-
-export default brainPrimeGame;

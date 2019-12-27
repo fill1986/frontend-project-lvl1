@@ -11,18 +11,16 @@ const getGreatestCommonDivisor = (num1, num2) => {
 
 const minValueRange = 0;
 const maxValueRange = 99;
-const ruleGame = 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getQuestionAnswer = () => {
   const num1 = generateNumber(minValueRange, maxValueRange);
   const num2 = generateNumber(minValueRange, maxValueRange);
   const trueAnswer = (getGreatestCommonDivisor(num1, num2)).toString();
-  const question = `${num1}  ${num2}`;
+  const question = `${num1} and ${num2}`;
   return [question, trueAnswer];
 };
 
-const gameNode = () => {
-  engineGame(getQuestionAnswer, ruleGame);
+export default () => {
+  engineGame(getQuestionAnswer, gameDescription);
 };
-
-export default gameNode;
