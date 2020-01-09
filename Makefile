@@ -13,7 +13,7 @@ lint:
 	npx eslint .
 build:
 	rm -rf dist
-	npmrun build
+	npm run build
 test:
 	npm test
 
