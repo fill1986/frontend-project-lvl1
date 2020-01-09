@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 import generateNumber from '../utils';
 import engineGame from '../engine';
 
