@@ -29,7 +29,7 @@ const engineGame = (getQuestionAnswer, gameDescription) => {
     iter(count + 1);
   };
 
-  return iter(0);
+  iter(0);
 };
 
 export default engineGame;
